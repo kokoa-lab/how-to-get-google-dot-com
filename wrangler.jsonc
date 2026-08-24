@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "how-to-get-google-dot-com",
+  "compatibility_date": "2026-08-24",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "how-to-get-google-dot-com.shinkeonkim.com",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

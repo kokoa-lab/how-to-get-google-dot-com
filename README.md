@@ -58,6 +58,28 @@ bun run build    # 프로덕션 빌드 → dist/
 bun run preview  # 빌드 결과 미리보기
 ```
 
+## Cloudflare 배포
+
+Cloudflare Workers Static Assets를 사용해
+`https://how-to-get-google-dot-com.shinkeonkim.com`에 배포합니다.
+
+사전 조건:
+
+- `shinkeonkim.com`이 배포할 Cloudflare 계정의 활성 Zone이어야 합니다.
+- 배포 호스트명에 기존 CNAME 레코드가 없어야 합니다.
+- 최초 한 번 `bunx wrangler login`으로 Cloudflare 계정을 인증합니다.
+
+```bash
+# Cloudflare 환경으로 로컬 미리보기
+bun run cf:dev
+
+# 프로덕션 빌드 후 커스텀 도메인으로 배포
+bun run deploy
+```
+
+배포 대상과 정적 자산 경로는 `wrangler.jsonc`에서 관리합니다. CI에서는
+대화형 로그인 대신 `CLOUDFLARE_API_TOKEN` 환경 변수를 사용할 수 있습니다.
+
 ## 프로젝트 구조
 
 ```
